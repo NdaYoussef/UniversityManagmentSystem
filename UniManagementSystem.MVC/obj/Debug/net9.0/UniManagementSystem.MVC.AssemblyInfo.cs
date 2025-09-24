@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UniManagementSystem.MVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c8f7b5521bb662e5e4498fa97df41674a5bc4fe6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ae38f46bce5bf4fb834c2ac768622290a138328")]
 [assembly: System.Reflection.AssemblyProductAttribute("UniManagementSystem.MVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UniManagementSystem.MVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

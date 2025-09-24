@@ -3,6 +3,42 @@
   "WorkspaceRootPath": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.MVC\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8AA75416-E3DE-4AF8-A92E-78D97AAC6200}|..\\UniManagementSystem.Domain\\UniManagementSystem.Domain.csproj|f:\\.net\\mvc\\unimanagementsystem\\unimanagementsystem.domain\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AA75416-E3DE-4AF8-A92E-78D97AAC6200}|..\\UniManagementSystem.Domain\\UniManagementSystem.Domain.csproj|f:\\.net\\mvc\\unimanagementsystem\\unimanagementsystem.domain\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AA75416-E3DE-4AF8-A92E-78D97AAC6200}|..\\UniManagementSystem.Domain\\UniManagementSystem.Domain.csproj|f:\\.net\\mvc\\unimanagementsystem\\unimanagementsystem.domain\\models\\studentcourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AA75416-E3DE-4AF8-A92E-78D97AAC6200}|..\\UniManagementSystem.Domain\\UniManagementSystem.Domain.csproj|f:\\.net\\mvc\\unimanagementsystem\\unimanagementsystem.domain\\models\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AA75416-E3DE-4AF8-A92E-78D97AAC6200}|..\\UniManagementSystem.Domain\\UniManagementSystem.Domain.csproj|f:\\.net\\mvc\\unimanagementsystem\\unimanagementsystem.domain\\models\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AA75416-E3DE-4AF8-A92E-78D97AAC6200}|..\\UniManagementSystem.Domain\\UniManagementSystem.Domain.csproj|f:\\.net\\mvc\\unimanagementsystem\\unimanagementsystem.domain\\models\\fee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AA75416-E3DE-4AF8-A92E-78D97AAC6200}|..\\UniManagementSystem.Domain\\UniManagementSystem.Domain.csproj|f:\\.net\\mvc\\unimanagementsystem\\unimanagementsystem.domain\\models\\exam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AA75416-E3DE-4AF8-A92E-78D97AAC6200}|..\\UniManagementSystem.Domain\\UniManagementSystem.Domain.csproj|f:\\.net\\mvc\\unimanagementsystem\\unimanagementsystem.domain\\models\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AA75416-E3DE-4AF8-A92E-78D97AAC6200}|..\\UniManagementSystem.Domain\\UniManagementSystem.Domain.csproj|f:\\.net\\mvc\\unimanagementsystem\\unimanagementsystem.domain\\models\\attendance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AA75416-E3DE-4AF8-A92E-78D97AAC6200}|..\\UniManagementSystem.Domain\\UniManagementSystem.Domain.csproj|f:\\.net\\mvc\\unimanagementsystem\\unimanagementsystem.domain\\models\\chat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AA75416-E3DE-4AF8-A92E-78D97AAC6200}|..\\UniManagementSystem.Domain\\UniManagementSystem.Domain.csproj|f:\\.net\\mvc\\unimanagementsystem\\unimanagementsystem.domain\\models\\studentexam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AA75416-E3DE-4AF8-A92E-78D97AAC6200}|..\\UniManagementSystem.Domain\\UniManagementSystem.Domain.csproj|f:\\.net\\mvc\\unimanagementsystem\\unimanagementsystem.domain\\enums\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D69AFDE5-B2D3-4D47-97E6-D130F44630B8}|..\\UniManagementSystem.Application\\UniManagementSystem.Application.csproj|f:\\.net\\mvc\\unimanagementsystem\\unimanagementsystem.application\\unimanagementsystem.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
@@ -23,24 +59,180 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StudentCourse.cs",
+              "DocumentMoniker": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\StudentCourse.cs",
+              "RelativeDocumentMoniker": "..\\UniManagementSystem.Domain\\Models\\StudentCourse.cs",
+              "ToolTip": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\StudentCourse.cs",
+              "RelativeToolTip": "..\\UniManagementSystem.Domain\\Models\\StudentCourse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T17:18:28.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "..\\UniManagementSystem.Domain\\Models\\ApplicationUser.cs",
+              "ToolTip": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "..\\UniManagementSystem.Domain\\Models\\ApplicationUser.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAIwBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T16:48:54.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Course.cs",
+              "DocumentMoniker": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\Course.cs",
+              "RelativeDocumentMoniker": "..\\UniManagementSystem.Domain\\Models\\Course.cs",
+              "ToolTip": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\Course.cs",
+              "RelativeToolTip": "..\\UniManagementSystem.Domain\\Models\\Course.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA/wA8AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T16:48:55.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Schedule.cs",
+              "DocumentMoniker": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\Schedule.cs",
+              "RelativeDocumentMoniker": "..\\UniManagementSystem.Domain\\Models\\Schedule.cs",
+              "ToolTip": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\Schedule.cs",
+              "RelativeToolTip": "..\\UniManagementSystem.Domain\\Models\\Schedule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T16:48:56.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Notification.cs",
+              "DocumentMoniker": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\Notification.cs",
+              "RelativeDocumentMoniker": "..\\UniManagementSystem.Domain\\Models\\Notification.cs",
+              "ToolTip": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\Notification.cs",
+              "RelativeToolTip": "..\\UniManagementSystem.Domain\\Models\\Notification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T16:48:56.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Fee.cs",
+              "DocumentMoniker": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\Fee.cs",
+              "RelativeDocumentMoniker": "..\\UniManagementSystem.Domain\\Models\\Fee.cs",
+              "ToolTip": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\Fee.cs",
+              "RelativeToolTip": "..\\UniManagementSystem.Domain\\Models\\Fee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T16:48:55.529Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Exam.cs",
+              "DocumentMoniker": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\Exam.cs",
+              "RelativeDocumentMoniker": "..\\UniManagementSystem.Domain\\Models\\Exam.cs",
+              "ToolTip": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\Exam.cs",
+              "RelativeToolTip": "..\\UniManagementSystem.Domain\\Models\\Exam.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T16:48:56.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Department.cs",
+              "DocumentMoniker": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\Department.cs",
+              "RelativeDocumentMoniker": "..\\UniManagementSystem.Domain\\Models\\Department.cs",
+              "ToolTip": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\Department.cs",
+              "RelativeToolTip": "..\\UniManagementSystem.Domain\\Models\\Department.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T16:48:55.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Attendance.cs",
+              "DocumentMoniker": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\Attendance.cs",
+              "RelativeDocumentMoniker": "..\\UniManagementSystem.Domain\\Models\\Attendance.cs",
+              "ToolTip": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\Attendance.cs",
+              "RelativeToolTip": "..\\UniManagementSystem.Domain\\Models\\Attendance.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T16:48:56.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Chat.cs",
+              "DocumentMoniker": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\Chat.cs",
+              "RelativeDocumentMoniker": "..\\UniManagementSystem.Domain\\Models\\Chat.cs",
+              "ToolTip": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\Chat.cs",
+              "RelativeToolTip": "..\\UniManagementSystem.Domain\\Models\\Chat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T16:48:56.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "StudentExam.cs",
+              "DocumentMoniker": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\StudentExam.cs",
+              "RelativeDocumentMoniker": "..\\UniManagementSystem.Domain\\Models\\StudentExam.cs",
+              "ToolTip": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Models\\StudentExam.cs",
+              "RelativeToolTip": "..\\UniManagementSystem.Domain\\Models\\StudentExam.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T17:18:42.483Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Roles.cs",
+              "DocumentMoniker": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Enums\\Roles.cs",
+              "RelativeDocumentMoniker": "..\\UniManagementSystem.Domain\\Enums\\Roles.cs",
+              "ToolTip": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\Enums\\Roles.cs",
+              "RelativeToolTip": "..\\UniManagementSystem.Domain\\Enums\\Roles.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T16:52:12.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "UniManagementSystem.MVC",
               "DocumentMoniker": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.MVC\\UniManagementSystem.MVC.csproj",
               "RelativeDocumentMoniker": "UniManagementSystem.MVC.csproj",
               "ToolTip": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.MVC\\UniManagementSystem.MVC.csproj",
               "RelativeToolTip": "UniManagementSystem.MVC.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-09-24T16:35:25.94Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 14,
               "Title": "UniManagementSystem.Infrastructure",
               "DocumentMoniker": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Infrastructure\\UniManagementSystem.Infrastructure.csproj",
               "RelativeDocumentMoniker": "..\\UniManagementSystem.Infrastructure\\UniManagementSystem.Infrastructure.csproj",
@@ -53,7 +245,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 13,
               "Title": "UniManagementSystem.Domain",
               "DocumentMoniker": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Domain\\UniManagementSystem.Domain.csproj",
               "RelativeDocumentMoniker": "..\\UniManagementSystem.Domain\\UniManagementSystem.Domain.csproj",
@@ -66,13 +258,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 12,
               "Title": "UniManagementSystem.Application",
               "DocumentMoniker": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Application\\UniManagementSystem.Application.csproj",
               "RelativeDocumentMoniker": "..\\UniManagementSystem.Application\\UniManagementSystem.Application.csproj",
               "ToolTip": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Application\\UniManagementSystem.Application.csproj",
               "RelativeToolTip": "..\\UniManagementSystem.Application\\UniManagementSystem.Application.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-09-24T16:34:23.078Z",
               "EditorCaption": ""

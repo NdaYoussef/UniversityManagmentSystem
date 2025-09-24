@@ -10,8 +10,9 @@
         public string CourseCode { get; set; }
 
 
-        public int DepartmentId { get; set; }
         public Department Department { get; set; }
+        public int DepartmentId { get; set; }
+
 
         public ICollection<Schedule> Schedules { get; set; } = new List<Schedule>();
         public ICollection<Exam> Exams { get; set; } = new List<Exam>();

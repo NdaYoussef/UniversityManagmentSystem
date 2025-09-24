@@ -7,6 +7,6 @@
         public DateTime Date { get; set; }
         public bool IsPaid { get; set; }
         public ApplicationUser Student { get; set; }
-        public int StudentID { get; set; }
+        public string StudentID { get; set; }
     }
 }

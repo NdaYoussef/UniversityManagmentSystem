@@ -1,3 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using UniManagementSystem.Domain.Models;
+using UniManagementSystem.Infrastructure.DBContext;
+
 namespace UniManagementSystem.MVC
 {
     public class Program
@@ -10,7 +15,13 @@ namespace UniManagementSystem.MVC
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
-
+            builder.Services.AddDbContext<UniSystemContext>(options=>
+            {
+                options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
+            builder.Services.AddIdentity<ApplicationUser,Microsoft.AspNet.Identity.EntityFramework.IdentityRole>()
+                .AddEntityFrameworkStores<UniSystemContext>()
+                .AddDefaultTokenProviders();
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {

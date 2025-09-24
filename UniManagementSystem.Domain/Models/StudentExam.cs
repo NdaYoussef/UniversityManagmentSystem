@@ -2,7 +2,7 @@
 {
     public class StudentExam
     {
-        public int StudentId { get; set; }
+        public string StudentId { get; set; }
         public ApplicationUser Student { get; set; }
 
         public int ExamId { get; set; }

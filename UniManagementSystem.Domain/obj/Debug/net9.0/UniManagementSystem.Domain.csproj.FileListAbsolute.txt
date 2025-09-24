@@ -10,3 +10,4 @@ F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Domain\obj\Debug\net9.0\UniM
 F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Domain\obj\Debug\net9.0\refint\UniManagementSystem.Domain.dll
 F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Domain\obj\Debug\net9.0\UniManagementSystem.Domain.pdb
 F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Domain\obj\Debug\net9.0\ref\UniManagementSystem.Domain.dll
+F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Domain\obj\Debug\net9.0\UniManagementSystem.Domain.csproj.AssemblyReference.cache

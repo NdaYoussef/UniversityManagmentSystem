@@ -1,0 +1,16 @@
+F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Infrastructure\bin\Debug\net9.0\UniManagementSystem.Infrastructure.deps.json
+F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Infrastructure\bin\Debug\net9.0\UniManagementSystem.Infrastructure.dll
+F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Infrastructure\bin\Debug\net9.0\UniManagementSystem.Infrastructure.pdb
+F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Infrastructure\bin\Debug\net9.0\UniManagementSystem.Domain.dll
+F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Infrastructure\bin\Debug\net9.0\UniManagementSystem.Domain.pdb
+F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Infrastructure\obj\Debug\net9.0\UniManagementSystem.Infrastructure.csproj.AssemblyReference.cache
+F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Infrastructure\obj\Debug\net9.0\UniManagementSystem.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Infrastructure\obj\Debug\net9.0\UniManagementSystem.Infrastructure.AssemblyInfoInputs.cache
+F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Infrastructure\obj\Debug\net9.0\UniManagementSystem.Infrastructure.AssemblyInfo.cs
+F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Infrastructure\obj\Debug\net9.0\UniManagementSystem.Infrastructure.csproj.CoreCompileInputs.cache
+F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Infrastructure\obj\Debug\net9.0\UniManagementSystem.Infrastructure.sourcelink.json
+F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Infrastructure\obj\Debug\net9.0\UniManag.9D53FDC6.Up2Date
+F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Infrastructure\obj\Debug\net9.0\UniManagementSystem.Infrastructure.dll
+F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Infrastructure\obj\Debug\net9.0\refint\UniManagementSystem.Infrastructure.dll
+F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Infrastructure\obj\Debug\net9.0\UniManagementSystem.Infrastructure.pdb
+F:\.Net\MVC\UniManagementSystem\UniManagementSystem.Infrastructure\obj\Debug\net9.0\ref\UniManagementSystem.Infrastructure.dll

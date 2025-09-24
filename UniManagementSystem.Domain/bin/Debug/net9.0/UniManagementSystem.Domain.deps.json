@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "UniManagementSystem.Domain/1.0.0": {
+        "runtime": {
+          "UniManagementSystem.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "UniManagementSystem.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -13,15 +13,24 @@ namespace UniManagementSystem.MVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
-            var app = builder.Build();
-            builder.Services.AddDbContext<UniSystemContext>(options=>
+            #region Connection String
+            builder.Services.AddDbContext<UniSystemContext>(options =>
             {
                 options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
-            builder.Services.AddIdentity<ApplicationUser,Microsoft.AspNet.Identity.EntityFramework.IdentityRole>()
+            #endregion
+
+
+            #region Identity
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<UniSystemContext>()
                 .AddDefaultTokenProviders();
+            #endregion
+
+            var app = builder.Build();
+
+          
+
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {

@@ -1,15 +1,21 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 using UniManagementSystem.Domain.Enums;
 
 namespace UniManagementSystem.Domain.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        [Required, MaxLength(50)]
         public string FirstName { get; set; }
+
+        [Required, MaxLength(50)]
         public string LastName { get; set; }
+        [MaxLength(250)]
         public string Address { get; set; }
 
         public string ProfilePic {  get; set; }
+        [MaxLength(20)]
         public string NationalID { get; set; }
         public DateTime DateOfBirth { get; set; }
         public double GPA { get; set; }

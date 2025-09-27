@@ -1,12 +1,17 @@
-﻿namespace UniManagementSystem.Domain.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace UniManagementSystem.Domain.Models
 {
     public class Course
     {
         public int Id { get; set; }
+        [Required, MaxLength(150)]
         public string Name { get; set; }
         public int MaxDegree { get; set; }
         public int MinDegree { get; set; }
-        public bool IsActive { get; set; }  
+        public bool IsActive { get; set; }
+
+        [MaxLength(50)]
         public string CourseCode { get; set; }
 
 

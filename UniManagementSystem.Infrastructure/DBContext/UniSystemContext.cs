@@ -10,7 +10,79 @@ namespace UniManagementSystem.Infrastructure.DBContext
                : base(options)
         {
         }
-        public DbSet<Course> Courses { get; set; }
         public DbSet<ApplicationUser> Users { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Department> Departments { get; set; }  
+        public DbSet<Exam> Exams { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
+        public DbSet<Attendance> Attendances { get; set; }
+        public DbSet<Fee> Fees { get; set; }
+        public DbSet<StudentCourse> StudentCourses { get; set; }
+        public DbSet<StudentExam> StudentExams { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Chat> Chats { get; set; }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            //base.OnModelCreating(builder);
+
+            //builder.Entity<StudentCourse>()
+            //    .HasKey(sc => new { sc.StudentId, sc.CourseId });
+
+            //builder.Entity<StudentCourse>()
+            //    .HasOne(sc => sc.Student)
+            //    .WithMany(s => s.StudentCourses)
+            //    .HasForeignKey(sc => sc.StudentId);
+
+            //builder.Entity<StudentCourse>()
+            //    .HasOne(sc => sc.Course)
+            //    .WithMany(c => c.StudentCourses)
+            //    .HasForeignKey(sc => sc.CourseId);
+            base.OnModelCreating(builder);
+            builder.Entity<StudentCourse>()
+           .HasKey(sc => new { sc.StudentId, sc.CourseId });
+
+            builder.Entity<StudentCourse>()
+           .HasOne(sc => sc.Student)
+           .WithMany(s => s.StudentCourses)
+           .HasForeignKey(sc => sc.StudentId)
+           .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<StudentCourse>()
+                .HasOne(sc => sc.Course)
+                .WithMany(c => c.StudentCourses)
+                .HasForeignKey(sc => sc.CourseId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<StudentExam>()
+           .HasKey(se => new { se.StudentId, se.ExamId });
+
+            builder.Entity<StudentExam>()
+                .HasOne(se => se.Student)
+                .WithMany(s => s.StudentExams)
+                .HasForeignKey(se => se.StudentId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<StudentExam>()
+                .HasOne(se => se.Exam)
+                .WithMany(e => e.StudentExams)
+                .HasForeignKey(se => se.ExamId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
+            builder.Entity<Attendance>()
+         .HasOne(a => a.Student)
+         .WithMany(s => s.Attendances)
+         .HasForeignKey(a => a.StudentId)
+         .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Attendance>()
+                .HasOne(a => a.Course)
+                .WithMany(c => c.Attendances)
+                .HasForeignKey(a => a.CourseId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
+        }
     }
 }
+

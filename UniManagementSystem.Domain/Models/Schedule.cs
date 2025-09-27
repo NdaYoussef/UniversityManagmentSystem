@@ -9,7 +9,8 @@
         public TimeSpan EndTime { get; set; }
         public Course Course { get; set; }
         public int CourseId { get; set; }
-        public string InstructorId { get; set; }
         public ApplicationUser Instructor { get; set; }
+        public string InstructorId { get; set; }
+
     }
 }

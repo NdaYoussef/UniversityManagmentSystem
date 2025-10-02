@@ -1,4 +1,4 @@
-namespace UniManagementSystem.MVC.Models
+﻿namespace UniManagementSystem.MVC.Models
 {
     public class ErrorViewModel
     {

@@ -40,6 +40,7 @@ namespace UniManagementSystem.MVC
             }
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
             app.UseRouting();
 
             app.UseAuthorization();

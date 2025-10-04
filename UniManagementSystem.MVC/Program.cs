@@ -1,5 +1,5 @@
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using UniManagementSystem.Domain.Models;
 using UniManagementSystem.Infrastructure.DBContext;
 
@@ -7,12 +7,13 @@ namespace UniManagementSystem.MVC
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
             #region Connection String
             builder.Services.AddDbContext<UniSystemContext>(options =>
             {
@@ -51,6 +52,13 @@ namespace UniManagementSystem.MVC
                 pattern: "{controller=Home}/{action=Index}/{id?}")
                 .WithStaticAssets();
 
+            #region Call Seeding
+            using (var scope = app.Services.CreateScope())
+            {
+                var service = scope.ServiceProvider;
+                await SeedData.SeedRoles(service); 
+            }
+            #endregion
             app.Run();
         }
     }

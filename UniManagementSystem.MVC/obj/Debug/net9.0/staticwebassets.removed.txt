@@ -1,3 +1,0 @@
-F:\.Net\MVC\UniManagementSystem\UniManagementSystem.MVC\wwwroot\assets\img\apple-touch-icon.png
-F:\.Net\MVC\UniManagementSystem\UniManagementSystem.MVC\wwwroot\assets\img\favicon.png
-F:\.Net\MVC\UniManagementSystem\UniManagementSystem.MVC\wwwroot\assets\img\logo.webp

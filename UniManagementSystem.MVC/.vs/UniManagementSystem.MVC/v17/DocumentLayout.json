@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.MVC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FA58AE99-837D-46E8-B138-5A078D9D3514}|UniManagementSystem.MVC.csproj|f:\\.net\\mvc\\unimanagementsystem\\unimanagementsystem.mvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FA58AE99-837D-46E8-B138-5A078D9D3514}|UniManagementSystem.MVC.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1CF75C39-A153-40EC-AA20-79462B2E00BF}|..\\UniManagementSystem.Infrastructure\\UniManagementSystem.Infrastructure.csproj|f:\\.net\\mvc\\unimanagementsystem\\unimanagementsystem.infrastructure\\dbcontext\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1CF75C39-A153-40EC-AA20-79462B2E00BF}|..\\UniManagementSystem.Infrastructure\\UniManagementSystem.Infrastructure.csproj|f:\\.net\\mvc\\unimanagementsystem\\unimanagementsystem.infrastructure\\dbcontext\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FA58AE99-837D-46E8-B138-5A078D9D3514}|UniManagementSystem.MVC.csproj|f:\\.net\\mvc\\unimanagementsystem\\unimanagementsystem.mvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA58AE99-837D-46E8-B138-5A078D9D3514}|UniManagementSystem.MVC.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8AA75416-E3DE-4AF8-A92E-78D97AAC6200}|..\\UniManagementSystem.Domain\\UniManagementSystem.Domain.csproj|f:\\.net\\mvc\\unimanagementsystem\\unimanagementsystem.domain\\enums\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -94,17 +94,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "SeedData.cs",
               "DocumentMoniker": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Infrastructure\\DBContext\\SeedData.cs",
               "RelativeDocumentMoniker": "..\\UniManagementSystem.Infrastructure\\DBContext\\SeedData.cs",
               "ToolTip": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.Infrastructure\\DBContext\\SeedData.cs",
               "RelativeToolTip": "..\\UniManagementSystem.Infrastructure\\DBContext\\SeedData.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-04T14:21:31.317Z",
               "EditorCaption": ""
@@ -136,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\.Net\\MVC\\UniManagementSystem\\UniManagementSystem.MVC\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",

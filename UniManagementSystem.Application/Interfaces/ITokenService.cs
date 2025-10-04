@@ -11,7 +11,7 @@ namespace UniManagementSystem.Application.Interfaces
     internal interface ITokenService
     {
         Task<string> GenerateToken(ApplicationUser user);
-        RefreshToken GenerateRefreshToken();
+        Domain.Models.RefreshToken GenerateRefreshToken();
         Task RevokeRefreshToken(string UserId);
     }
 }

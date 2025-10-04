@@ -28,7 +28,6 @@ namespace UniManagementSystem.Application.Services
                 ExpiresOn = DateTime.UtcNow.AddDays(10),
                 CreatedAt = DateTime.UtcNow,
             };
-
         }
 
         public Task RevokeRefreshToken(string UserId)

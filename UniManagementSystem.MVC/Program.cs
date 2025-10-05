@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using UniManagementSystem.Domain.Models;
 using UniManagementSystem.Infrastructure.DBContext;
 
@@ -21,6 +24,30 @@ namespace UniManagementSystem.MVC
             });
             #endregion
             builder.Services.AddHttpContextAccessor();
+            #region Add Authentication
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(op =>
+            {
+                op.SaveToken = true;
+                op.RequireHttpsMetadata = false;
+                op.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = builder.Configuration["JWT:Issuer"],
+                    ValidAudience = builder.Configuration["JWT:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]!)),
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
+                
+
+            #endregion
 
             #region Identity
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -43,7 +70,7 @@ namespace UniManagementSystem.MVC
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapStaticAssets();

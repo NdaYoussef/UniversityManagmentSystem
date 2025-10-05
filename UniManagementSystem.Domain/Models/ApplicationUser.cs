@@ -25,6 +25,7 @@ namespace UniManagementSystem.Domain.Models
         public DateTime EnrolmentDate { get; set; }
         public Roles Role { get; set; }
         public decimal? Salary { get; set; }
+        public bool IsDeleted { get; set; } = false;
 
         public Department Department { get; set; }
         public int DepartmentId { get; set; }

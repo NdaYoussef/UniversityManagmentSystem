@@ -28,61 +28,23 @@ namespace UniManagementSystem.Application.Services
             _tokenService = tokenService;
             _roleManager = roleManager;
         }
+
         public async Task<ApplicationUser> GetCurrentUserAsync(string email)
         {
-            var user = await _userManager.FindByIdAsync(email);
-            if(user is not null)
-                return user;
+            if (string.IsNullOrEmpty(email))
+                return null;
+            var currentUser = await _userManager.FindByEmailAsync(email);
+            if(currentUser is not null)
+            return currentUser;
+
             return null;
         }
 
-        public async Task<AuthDto> LoginAsync(LoginDto loginDto)
-        {
-            var authModel = new AuthDto();
-            var user = await _userManager.FindByEmailAsync(loginDto.Email);
-            if (user == null || !await _userManager.CheckPasswordAsync(user, loginDto.Password))
-            {
-                authModel.Message = "Email or Password is incorrect";
-                return authModel;
-            }
-            //2- get user roles 
-            var roles = await _userManager.GetRolesAsync(user);
-
-            //3- login success
-            var result = await _signInManager.PasswordSignInAsync(user, loginDto.Password, false, false);
-            if (result.Succeeded)
-            {
-                authModel.IsAuthenticated = true;
-                authModel.Email = user.Email;
-                authModel.UserName = user.UserName;
-                authModel.Roles = new List<string> { user.Role.ToString() };
-            }
-
-            //4- check and generate refreshtoken
-            if (user.RefreshTokens.Any(t => t.IsActive))
-            {
-                var refreshToken = user.RefreshTokens.FirstOrDefault(t => t.IsActive);
-                authModel.RefreshToken = refreshToken.Token;
-                authModel.RefreshTokenExpiration = refreshToken.ExpiresOn;
-            }
-            else
-            {
-                var newRefreshToken = _tokenService.GenerateRefreshToken();
-                authModel.RefreshToken = newRefreshToken.Token;
-                authModel.RefreshTokenExpiration = newRefreshToken.ExpiresOn;
-                user.RefreshTokens.Add(newRefreshToken);
-                await _userManager.UpdateAsync(user);
-            }
-            return authModel;
-        }
         public async Task<AuthDto> RegisterAsync(RegisterDto registerDto)
         {
-
-            if (await _userManager.FindByEmailAsync(registerDto.Email) != null)
-            {
+            if (await _userManager.FindByEmailAsync(registerDto.Email) is not null)
                 return new AuthDto { Message = "Email is already Registered!" };
-            }
-            if (await _userManager.FindByNameAsync(registerDto.UserName) != null)
+            if (await _userManager.FindByNameAsync(registerDto.UserName) is not null)
                 return new AuthDto { Message = "UserName is already Registered!" };
 
             var user = new ApplicationUser
@@ -103,70 +65,123 @@ namespace UniManagementSystem.Application.Services
             {
                 var errors = string.Empty;
                 foreach (var error in result.Errors)
-                {
                     errors += $"{error.Description}";
-                }
+
                 return new AuthDto { Message = errors };
             }
-
             var roleName = registerDto.Role.ToString();
+
             if (!await _roleManager.RoleExistsAsync(roleName))
             {
-                var roleResult = await _roleManager.CreateAsync(new IdentityRole(registerDto.Role.ToString()));
+                var roleResult = await _roleManager.CreateAsync(new IdentityRole(roleName));
                 if (!roleResult.Succeeded)
                 {
+                    await _userManager.DeleteAsync(user);
                     return new AuthDto
                     {
                         Message = "Something gets wrong, try, again later,",
                         IsAuthenticated = false
                     };
-
                 }
             }
-                var newResult = await _userManager.AddToRoleAsync(user, roleName);
-                if (!newResult.Succeeded)
-                {
-                    return new AuthDto
-                    {
-                        IsAuthenticated = false,
-                        Message = "Something gets wrong, try, again later,",
-                    };
-                }
-
-                await _signInManager.SignInAsync(user, isPersistent: false);
-
+            var newResult = await _userManager.AddToRoleAsync(user, roleName);
+            if (!newResult.Succeeded)
+            {
+                var error = string.Join(" ", newResult.Errors.Select(e => e.Description));
                 return new AuthDto
                 {
-                    Email = user.Email,
-                    UserName = user.UserName,
-                    Roles = new List<string> { user.Role.ToString() },
-                    IsAuthenticated = true
+                    IsAuthenticated = false,
+                    Message = $"Failed to assign role: {error}",
                 };
             }
 
+            await _signInManager.SignInAsync(user, isPersistent: false);
+            var assignedRoles = (await _userManager.GetRolesAsync(user)).ToList();
+            return new AuthDto
+            {
+                Email = user.Email,
+                UserName = user.UserName,
+                Roles = assignedRoles,
+                IsAuthenticated = true,
+                Message = "User registered successfully"
+            };
+        }
+        public async Task<AuthDto> LoginAsync(LoginDto loginDto)
+        {
+            var authModel = new AuthDto();
+            var user = await _userManager.FindByEmailAsync(loginDto.Email);
+            if (user == null || !await _userManager.CheckPasswordAsync(user, loginDto.Password))
+                return new AuthDto() { Message = "Email or Password is incorrect!" };
+
+
+            var roles = (await _userManager.GetRolesAsync(user)).ToList();
+
+            var result = await _signInManager.PasswordSignInAsync(user, loginDto.Password, false, false);
+            if (result.Succeeded)
+            {
+                authModel.IsAuthenticated = true;
+                authModel.Email = user.Email;
+                authModel.UserName = user.UserName;
+                authModel.Roles = roles; 
+            }
+
+            if(user.RefreshTokens!= null && user.RefreshTokens.Any(t=>t.IsActive))
+            {
+                var refreshToken = user.RefreshTokens.First(t => t.IsActive);
+                authModel.RefreshToken = refreshToken.Token;
+                authModel.RefreshTokenExpiration = refreshToken.ExpiresOn;
+            }
+            else
+            {
+                var newRefreshToken = _tokenService.GenerateRefreshToken();
+                authModel.RefreshToken = newRefreshToken.Token;
+                authModel.RefreshTokenExpiration = newRefreshToken.ExpiresOn;
+                user.RefreshTokens.Add(newRefreshToken);
+                await _userManager.UpdateAsync(user);
+            }
+            return authModel;
+        }
+
         public async Task<AuthDto> LogoutAsync(string email)
         {
-            var user = await _userManager.FindByIdAsync(email);
-            if(user is null)
+            if (string.IsNullOrWhiteSpace(email))
             {
-                return new AuthDto { IsAuthenticated = false, Message = "User not found." };
+                return new AuthDto
+                {
+                    IsAuthenticated = false,
+                    Message = "Email is required to logout."
+                };
             }
-
-            var activeToken = user.RefreshTokens.Where(x => x.IsActive).ToList();
-            foreach (var token in activeToken)
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
             {
-                token.RevokedOn = DateTime.UtcNow;
+                return new AuthDto
+                {
+                    IsAuthenticated = false,
+                    Message = "User not found."
+                };
             }
+            if (user.RefreshTokens != null)
+            {
+                var activeTokens = user.RefreshTokens.Where(t => t.IsActive).ToList();
+                foreach (var token in activeTokens)
+                {
+                    token.ExpiresOn = DateTime.UtcNow;
+                }
 
-            await _userManager.UpdateAsync(user);
+                await _userManager.UpdateAsync(user);
+            }
+           
             await _signInManager.SignOutAsync();
             return new AuthDto
             {
-                IsAuthenticated = false,
+                IsAuthenticated = true,
                 Message = "User has been logged out sucessfully"
             };
         }
 
+
         }
-    }
+        }
+    
 

@@ -16,6 +16,7 @@ namespace UniManagementSystem.Domain.Models
         public string LastName { get; set; }
         [MaxLength(250)]
         public string Address { get; set; }
+        public string Gender { get; set; }
 
         public string ProfilePic { get; set; }
         [MaxLength(20)]

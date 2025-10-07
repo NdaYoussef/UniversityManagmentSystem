@@ -23,7 +23,6 @@ namespace UniManagementSystem.MVC
                 options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
             #endregion
-            builder.Services.AddHttpContextAccessor();
             #region Add Authentication
             builder.Services.AddAuthentication(options =>
             {
@@ -48,7 +47,6 @@ namespace UniManagementSystem.MVC
                 
 
             #endregion
-
             #region Identity
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<UniSystemContext>()

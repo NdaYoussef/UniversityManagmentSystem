@@ -8,7 +8,7 @@ using UniManagementSystem.Domain.Enums;
 
 namespace UniManagementSystem.Application.DTOs
 {
-    internal class AuthDto
+    public class AuthDto
     {
         public string? Message { get; set; }
         public bool IsAuthenticated { get; set; } = false;

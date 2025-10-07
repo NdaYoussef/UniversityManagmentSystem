@@ -11,15 +11,15 @@ namespace UniManagementSystem.Application.DTOs.UserDtos
     internal class RegisterDto
     {
         [Required, MaxLength(50)]
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
 
         [Required, MaxLength(50)]
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
        
-
+        public string? UserName { get; set; }
         [Required]
         [EmailAddress]
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
         [Required(ErrorMessage = "Password is required")]
         [StringLength(20, MinimumLength = 6, ErrorMessage = "Password must be between 6 and 20 characters")]
@@ -31,6 +31,9 @@ namespace UniManagementSystem.Application.DTOs.UserDtos
         public string ConfirmedPassword { get; set; }
 
         public string NationalID { get; set; }
+        public string? Address { get; set; }
+        public string? PhoneNumber { get; set; }
+        public string Gender { get; set; }  
 
         public DateTime DateOfBirth { get; set; }
 

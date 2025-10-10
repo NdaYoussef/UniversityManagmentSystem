@@ -1,0 +1,180 @@
+﻿/* register.css - Ultra-tiny, blue-themed, scrollable registration form */
+
+/* ---------- Page layout ---------- */
+:root {
+    --accent: #0b5ed7; /* Blue theme */
+    --bg: #f1f7fb; /* Light blue-gray background */
+    --card-bg: #ffffff; /* White card background */
+    --muted: #6c757d; /* Muted text color */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: linear-gradient(180deg, #f7fbff 0%, #ffffff 60%);
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px; /* Minimal padding for body */
+}
+
+/* ---------- Card ---------- */
+.auth-card {
+    width: 200px; /* Ultra-tiny width */
+    max-width: 80%; /* Responsive for small screens */
+    background: var(--card-bg);
+    border-radius: 6px; /* Tiny border radius */
+    box-shadow: 0 4px 12px rgba(3,85,255,0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-head {
+    padding: 6px 8px; /* Minimal header padding */
+    border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+    .auth-head h2 {
+        margin: 0;
+        font-size: 0.8rem; /* Tiny header */
+        color: var(--accent);
+        font-weight: 700;
+    }
+
+    .auth-head p {
+        margin: 1px 0 0; /* Minimal margin */
+        color: var(--muted);
+        font-size: 0.65rem; /* Tiny subtitle */
+    }
+
+/* ---------- Scrollable body ---------- */
+.auth-body {
+    max-height: 180px; /* Ultra-tiny scrollable area for many fields */
+    overflow-y: auto; /* Enable vertical scroll */
+    padding: 4px 6px; /* Minimal padding */
+}
+
+/* ---------- Compact form controls ---------- */
+.form-label {
+    font-size: 8px; /* Tiny labels */
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1px; /* Minimal margin */
+}
+
+.form-control, .form-select {
+    height: 22px; /* Tiny input height */
+    padding: 2px 4px; /* Minimal padding */
+    border-radius: 4px; /* Small radius */
+    border: 1px solid rgba(11,94,215,0.1);
+    font-size: 8px; /* Tiny font */
+    line-height: 1.2; /* Adjusted for readability */
+}
+
+.mb-2 {
+    margin-bottom: 2px; /* Ultra-tight spacing */
+}
+
+.text-danger {
+    font-size: 7px; /* Tiny error text */
+    margin-top: 1px; /* Minimal margin */
+    display: block;
+}
+
+/* Position relative for inline toggle */
+.position-relative {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 16px; /* Adjusted for tiny inputs */
+    right: 4px; /* Closer to edge */
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #495057;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px; /* Tiny icon */
+}
+
+/* ---------- Footer (submit area) ---------- */
+.auth-foot {
+    padding: 4px 6px; /* Minimal padding */
+    border-top: 1px solid rgba(0,0,0,0.03);
+    background: #fbfdff;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 4px; /* Tiny button padding */
+    border-radius: 4px;
+    font-weight: 600;
+    border: 0;
+    background-color: var(--accent);
+    color: #fff;
+    font-size: 9px; /* Tiny button text */
+}
+
+    .btn-primary:hover {
+        background-color: #0a4fb0; /* Darker blue on hover */
+    }
+
+.link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 8px; /* Tiny link text */
+}
+
+    .link:hover {
+        text-decoration: underline;
+    }
+
+/* ---------- Scrollbar style ---------- */
+.auth-body::-webkit-scrollbar {
+    width: 2px; /* Ultra-thin scrollbar */
+}
+
+.auth-body::-webkit-scrollbar-thumb {
+    background: rgba(11,94,215,0.15);
+    border-radius: 2px;
+}
+
+.auth-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* ---------- Responsive adjustments ---------- */
+@media (max-width: 300px) {
+    .auth-card {
+        width: 180px; /* Super-tiny for very small screens */
+        border-radius: 5px;
+        box-shadow: 0 3px 8px rgba(3,85,255,0.04);
+    }
+
+    .auth-body {
+        max-height: 160px; /* Smaller scrollable area */
+        padding: 3px 5px; /* Minimal padding */
+    }
+
+    .auth-head {
+        padding: 5px 6px;
+    }
+
+    .auth-foot {
+        padding: 3px 5px;
+    }
+
+    body {
+        padding: 5px; /* Minimal body padding */
+    }
+}

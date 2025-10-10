@@ -8,7 +8,7 @@ using UniManagementSystem.Domain.Enums;
 
 namespace UniManagementSystem.Application.DTOs.UserDtos
 {
-    internal class RegisterDto
+    public class RegisterDto
     {
         [Required, MaxLength(50)]
         public string? FirstName { get; set; }
@@ -28,7 +28,10 @@ namespace UniManagementSystem.Application.DTOs.UserDtos
         [Required(ErrorMessage = "Please confirm your password")]
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Passwords do not match")]
+        [Display(Name = "Confirm Password")]
         public string ConfirmedPassword { get; set; }
+
+        [Display(Name = "National ID")]
 
         public string NationalID { get; set; }
         public string? Address { get; set; }
@@ -37,6 +40,7 @@ namespace UniManagementSystem.Application.DTOs.UserDtos
 
         public DateTime DateOfBirth { get; set; }
 
+        [Display(Name ="Person Type")]
         public Roles Role { get; set; }
 
     }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using UniManagementSystem.Domain.Enums;
 
 namespace UniManagementSystem.Domain.Models
@@ -11,6 +12,7 @@ namespace UniManagementSystem.Domain.Models
         public DateTime Date { get; set; }
         public Roles RecepetiveRole { get; set; }
         public ApplicationUser? User { get; set; }
+        [ForeignKey("User")]
         public string? UserId { get; set; }
 
     }

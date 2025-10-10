@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using UniManagementSystem.Application.Interfaces;
+using UniManagementSystem.Application.Services;
 using UniManagementSystem.Domain.Models;
 using UniManagementSystem.Infrastructure.DBContext;
 
@@ -52,6 +54,9 @@ namespace UniManagementSystem.MVC
                 .AddEntityFrameworkStores<UniSystemContext>()
                 .AddDefaultTokenProviders();
             #endregion
+
+            builder.Services.AddScoped<ITokenService, TokenService>();
+            builder.Services.AddScoped<IAccountServicecs, AccountServicecs>();
 
             var app = builder.Build();
 

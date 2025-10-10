@@ -9,7 +9,7 @@ using UniManagementSystem.Domain.Models;
 
 namespace UniManagementSystem.Application.Interfaces
 {
-    internal interface IAccountServicecs
+    public interface IAccountServicecs
     {
         Task<ApplicationUser> GetCurrentUserAsync(string email);
         Task<AuthDto> RegisterAsync(RegisterDto registerDto);

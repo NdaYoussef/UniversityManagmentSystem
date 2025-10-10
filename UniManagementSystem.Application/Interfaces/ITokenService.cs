@@ -8,7 +8,7 @@ using UniManagementSystem.Domain.Models;
 
 namespace UniManagementSystem.Application.Interfaces
 {
-    internal interface ITokenService
+    public interface ITokenService
     {
         Task<string> GenerateToken(ApplicationUser user);
         Domain.Models.RefreshToken GenerateRefreshToken();

@@ -18,7 +18,7 @@ using JwtRegisteredClaimNames = Microsoft.IdentityModel.JsonWebTokens.JwtRegiste
 
 namespace UniManagementSystem.Application.Services
 {
-    internal class TokenService : ITokenService
+    public class TokenService : ITokenService
     {
         private readonly IConfiguration _configuration;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -62,6 +62,11 @@ namespace UniManagementSystem.Application.Services
         }
 
         public Task RevokeRefreshToken(string UserId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<string> ITokenService.GenerateToken(ApplicationUser user)
         {
             throw new NotImplementedException();
         }

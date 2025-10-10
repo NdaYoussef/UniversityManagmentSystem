@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UniManagementSystem.Application.DTOs.UserDtos
 {
-    internal class LoginDto
+    public class LoginDto
     {
         [Required]
         [EmailAddress]

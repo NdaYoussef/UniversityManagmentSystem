@@ -1,0 +1,292 @@
+﻿/* Blue Shades Theme for Login Page */
+:root {
+    --blue-primary: #007bff; /* Main blue */
+    --blue-light: #e3f2fd; /* Light blue background */
+    --blue-lighter: #f8fbff; /* Even lighter blue */
+    --blue-dark: #0056b3; /* Darker blue for accents */
+    --blue-text: #004085; /* Blue text for labels/headings */
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 123, 255, 0.1); /* Subtle blue-tinted shadow */
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+/* Overall container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--blue-light);
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Login card */
+.login-card {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border: 1px solid rgba(0, 123, 255, 0.1);
+}
+
+    /* Welcome heading */
+    .login-card h2 {
+        color: var(--blue-text);
+        margin-bottom: 10px;
+        font-weight: 600;
+        font-size: 2rem;
+    }
+
+    /* Welcome paragraph */
+    .login-card p {
+        color: #6c757d;
+        margin-bottom: 30px;
+        font-size: 1rem;
+    }
+
+/* Error alert (keep red for visibility, but with blue border accent) */
+.alert.alert-danger {
+    background-color: #f8d7da;
+    border-color: var(--blue-primary);
+    color: #721c24;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Form styling */
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form groups */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+    /* Labels */
+    .form-group label {
+        display: block;
+        color: var(--blue-text);
+        font-weight: 500;
+        margin-bottom: 5px;
+        font-size: 0.95rem;
+    }
+
+/* Input fields */
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: var(--blue-lighter);
+    box-sizing: border-box;
+}
+
+    .form-control:focus {
+        border-color: var(--blue-primary);
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        background-color: var(--white);
+        outline: none;
+    }
+
+/* Validation errors */
+.text-danger {
+    color: #dc3545 !important;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Submit button */
+.btn.btn-primary {
+    background-color: var(--blue-primary);
+    border-color: var(--blue-primary);
+    color: var(--white);
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+    .btn.btn-primary:hover {
+        background-color: var(--blue-dark);
+        border-color: var(--blue-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+    }
+
+    .btn.btn-primary:active {
+        transform: translateY(0);
+    }
+
+/* Register link */
+.register-link {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+    .register-link a {
+        color: var(--blue-primary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+    }
+
+        .register-link a:hover {
+            color: var(--blue-dark);
+            text-decoration: underline;
+        }
+
+/* Responsive adjustments */
+
+/* Tablets and larger mobiles (up to 768px) */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 15px;
+        min-height: 100vh; /* Ensure full height on smaller viewports */
+    }
+
+    .login-card {
+        padding: 30px 25px;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+        .login-card h2 {
+            font-size: 1.75rem;
+        }
+
+        .login-card p {
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+    .form-control {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+
+    .btn.btn-primary {
+        padding: 11px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Small mobiles (up to 480px) */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 10px;
+        justify-content: flex-start; /* Align to top on very small screens */
+        align-items: flex-start;
+        min-height: 100vh;
+    }
+
+    .login-card {
+        padding: 25px 20px;
+        max-width: 95%;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0, 123, 255, 0.1); /* Lighter shadow on mobile */
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+        .login-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .login-card p {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+        .form-group label {
+            font-size: 0.9rem;
+        }
+
+    .form-control {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .btn.btn-primary {
+        padding: 10px;
+        font-size: 0.9rem;
+        margin-top: 8px;
+    }
+
+    .register-link {
+        font-size: 0.85rem;
+    }
+
+    .alert.alert-danger {
+        padding: 10px;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+}
+
+/* Very small screens (e.g., 320px and below) */
+@media (max-width: 320px) {
+    .login-card {
+        padding: 20px 15px;
+        max-width: 100%;
+    }
+
+        .login-card h2 {
+            font-size: 1.4rem;
+        }
+
+    .form-control,
+    .btn.btn-primary {
+        font-size: 0.85rem;
+        padding: 9px 10px;
+    }
+
+    .register-link {
+        font-size: 0.8rem;
+    }
+}
+
+/* Landscape orientation on mobiles */
+@media (max-height: 500px) and (orientation: landscape) {
+    .login-container {
+        align-items: flex-start;
+        padding-top: 20px;
+    }
+
+    .login-card {
+        margin-top: 10px;
+        max-width: 95%;
+    }
+
+        .login-card h2 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+
+        .login-card p {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+}

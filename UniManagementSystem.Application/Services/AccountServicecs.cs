@@ -12,7 +12,7 @@ using UniManagementSystem.Domain.Models;
 
 namespace UniManagementSystem.Application.Services
 {
-    internal class AccountServicecs : IAccountServicecs
+    public class AccountServicecs : IAccountServicecs
     {
        // private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -136,7 +136,7 @@ namespace UniManagementSystem.Application.Services
                 var newRefreshToken = _tokenService.GenerateRefreshToken();
                 authModel.RefreshToken = newRefreshToken.Token;
                 authModel.RefreshTokenExpiration = newRefreshToken.ExpiresOn;
-                user.RefreshTokens.Add(newRefreshToken);
+                user.RefreshTokens?.Add(newRefreshToken);
                 await _userManager.UpdateAsync(user);
             }
             return authModel;

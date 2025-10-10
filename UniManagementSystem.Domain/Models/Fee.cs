@@ -8,11 +8,12 @@ namespace UniManagementSystem.Domain.Models
         public int Id { get; set; }
         [Required]
         public decimal Amount {  get; set; }
-        public DateTime Date { get; set; }
-        public bool IsPaid { get; set; }
-        [ForeignKey(nameof(StudentId))]
+        public DateTime Date { get; set; } = DateTime.UtcNow;
+        public bool IsPaid { get; set; } = false;
+      //  [ForeignKey(nameof(StudentId))]
         public ApplicationUser Student { get; set; }
         [Required]
+        [ForeignKey("Student")]
         public string StudentId { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using UniManagementSystem.Infrastructure.DBContext;
@@ -11,9 +12,11 @@ using UniManagementSystem.Infrastructure.DBContext;
 namespace UniManagementSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(UniSystemContext))]
-    partial class UniSystemContextModelSnapshot : ModelSnapshot
+    [Migration("20251009222638_rearrangeTables")]
+    partial class rearrangeTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -163,6 +166,7 @@ namespace UniManagementSystem.Infrastructure.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Address")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("character varying(250)");
 
@@ -171,9 +175,9 @@ namespace UniManagementSystem.Infrastructure.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
-                    b.Property<int?>("DepartmentId")
+                    b.Property<int>("DepartmentId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Email")
@@ -183,12 +187,15 @@ namespace UniManagementSystem.Infrastructure.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("boolean");
 
+                    b.Property<DateTime>("EnrolmentDate")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
-                    b.Property<double?>("GPA")
+                    b.Property<double>("GPA")
                         .HasColumnType("double precision");
 
                     b.Property<string>("Gender")
@@ -232,6 +239,7 @@ namespace UniManagementSystem.Infrastructure.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("ProfilePic")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Role")
@@ -536,7 +544,9 @@ namespace UniManagementSystem.Infrastructure.Migrations
                 {
                     b.HasOne("UniManagementSystem.Domain.Models.Department", "Department")
                         .WithMany("Users")
-                        .HasForeignKey("DepartmentId");
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Department");
                 });

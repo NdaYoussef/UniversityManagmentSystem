@@ -1,0 +1,79 @@
+﻿@using UniManagementSystem.Application.DTOs.UserDtos
+@model LoginDto
+
+@{
+    ViewData["Title"] = "Login";
+}
+<link rel="stylesheet" href="~/css/account/login.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+<div class="login-container">
+    <div class="login-card">
+        <h2>Welcome Back</h2>
+        <p>Please sign in to your account</p>
+
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                @Html.ValidationSummary(true)
+            </div>
+        }
+
+        <form asp-action="SaveLogin" method="post" class="login-form">
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password" />
+                <button type="button" class="btn btn-outline-secondary toggle-password" data-target="#Password" aria-label="Toggle password">
+                    <i class="bi bi-eye"></i>
+                </button>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 mt-3">Login</button>
+        </form>
+
+        <p class="register-link mt-3">
+            Don't have an account? <a asp-action="Register" asp-controller="Account">Register here</a>
+        </p>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        // toggle password visibility for .toggle-password
+        document.querySelectorAll('.toggle-password').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var targetSelector = btn.getAttribute('data-target');
+                var input = document.querySelector(targetSelector);
+                if (!input) return;
+
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    btn.innerHTML = '<i class="bi bi-eye-slash"></i>';
+                } else {
+                    input.type = 'password';
+                    btn.innerHTML = '<i class="bi bi-eye"></i>';
+                }
+            });
+        });
+    </script>
+
+    <style>
+        
+        .input-group .toggle-password {
+            border-left: 0;
+        }
+        
+        .password-input {
+            padding-right: 0.5rem;
+        }
+    </style>
+}

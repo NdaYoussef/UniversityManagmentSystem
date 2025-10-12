@@ -8,7 +8,7 @@ namespace UniManagementSystem.Domain.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        private ICollection<RefreshToken> refreshTokens = new List<RefreshToken>();
+    
 
         [Required, MaxLength(50)]
         public string FirstName { get; set; }

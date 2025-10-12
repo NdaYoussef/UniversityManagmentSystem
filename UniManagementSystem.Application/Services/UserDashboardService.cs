@@ -45,21 +45,25 @@ namespace UniManagementSystem.Application.Services
             }
 
             var roles = await _userManager.GetRolesAsync(user);
+
+            string dashboardRoute = string.Empty;
+            if (roles.Contains("Admin")) dashboardRoute = "/Admin/Dashboard";
+            else if (roles.Contains("Lecturer")) dashboardRoute = "/Lecturer/Dashboard";
+            else if (roles.Contains("Student")) dashboardRoute = "/Student/Dashboard";
+            //else dashboardRoute = "/Dashboard";
+
+            var dto = _mapper.Map<UserDashboardDto>(user);
+            var data = new
+            {
+                user = dto,
+                Roles = roles,
+                DashboardRoute = dashboardRoute
+            };
             return new AuthDto
             {
                 IsAuthenticated = true,
-                Email = user.Email,
-                UserName = user.UserName,
-                Roles = roles.ToList(),
-                Data = new
-                {
-                    user.PhoneNumber,
-                    user.DateOfBirth,
-                    user.ProfilePic,
-                    user.NationalID,
-                    user.Address,
-                    user.DepartmentId
-                }
+                Message = "User data retrieved",
+                Data = data
             };
         }
 

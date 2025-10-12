@@ -10,7 +10,7 @@ using UniManagementSystem.Domain.Models;
 
 namespace UniManagementSystem.Application.Interfaces
 {
-    internal interface IUserDashboardService
+    public interface IUserDashboardService
     {
         Task<AuthDto> GetUserData(string userId);
         Task<AuthDto> UpdateUserData(ApplicationUser user);

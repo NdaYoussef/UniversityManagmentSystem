@@ -1,12 +1,19 @@
+using CloudinaryDotNet;
+using Mapster;
+using MapsterMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Principal;
 using System.Text;
 using UniManagementSystem.Application.Interfaces;
+using UniManagementSystem.Application.Mappings;
 using UniManagementSystem.Application.Services;
+using UniManagementSystem.Application.UploadSettings;
 using UniManagementSystem.Domain.Models;
 using UniManagementSystem.Infrastructure.DBContext;
+
 
 namespace UniManagementSystem.MVC
 {
@@ -58,6 +65,35 @@ namespace UniManagementSystem.MVC
             builder.Services.AddScoped<ITokenService, TokenService>();
             builder.Services.AddScoped<IAccountServicecs, AccountServicecs>();
 
+            #region Adding Mapster
+           
+            builder.Services.AddMapster();
+            TypeAdapterConfig.GlobalSettings.Scan(typeof(MapsterConfig).Assembly);
+            builder.Services.AddSingleton(TypeAdapterConfig.GlobalSettings);
+            builder.Services.AddScoped<IMapper, ServiceMapper>();
+
+            #endregion
+
+            #region Cloudinary Service 
+            builder.Services.Configure<CloudinarySettings>(
+               builder.Configuration.GetSection("CloudinarySettings"));
+            var cloudinarySettings = builder.Configuration.GetSection("CloudinarySettings").Get<CloudinarySettings>();
+            if (cloudinarySettings == null ||
+                string.IsNullOrEmpty(cloudinarySettings.CloudName) ||
+                string.IsNullOrEmpty(cloudinarySettings.ApiKey) ||
+                string.IsNullOrEmpty(cloudinarySettings.ApiSecret))
+            {
+                throw new InvalidOperationException("Cloudinary settings are not properly configured.");
+            }
+            var account = new Account(
+            cloudinarySettings.CloudName,
+            cloudinarySettings.ApiKey,
+            cloudinarySettings.ApiSecret
+            );
+            var cloudinary = new Cloudinary(account);
+
+            builder.Services.AddSingleton(cloudinary);
+            #endregion
             var app = builder.Build();
 
           

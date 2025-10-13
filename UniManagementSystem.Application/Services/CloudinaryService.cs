@@ -27,7 +27,7 @@ namespace UniManagementSystem.Application.Services
 
             var uploadParams = new ImageUploadParams
             {
-                File = new FileDescription(file.FileName, stream)
+                File = new FileDescription(file.FileName, stream),
                 Folder = "UserProfiles"
             };
 

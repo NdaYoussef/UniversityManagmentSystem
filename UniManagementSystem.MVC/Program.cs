@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
 using System.Security.Principal;
 using System.Text;
 using UniManagementSystem.Application.Interfaces;
@@ -23,8 +24,29 @@ namespace UniManagementSystem.MVC
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            // Add services to the container.
+            #region SeriLog settinges
+            var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+            Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(config).CreateLogger();
+            Log.Information("App Starts!");
+            builder.Host.UseSerilog();
+            //try
+            //{
+            //    Log.Information("Application starts");
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    Log.Fatal("Failed to run program");
+            //}
+            //finally
+            //{
+            //    Log.CloseAndFlush();
+            //}
+            #endregion
+
 
             #region Connection String
             builder.Services.AddDbContext<UniSystemContext>(options =>
@@ -53,8 +75,17 @@ namespace UniManagementSystem.MVC
                     ClockSkew = TimeSpan.Zero
                 };
             });
-                
 
+
+            #endregion
+            #region Add Authorization
+
+            builder.Services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
+                options.AddPolicy("Lecturer", policy => policy.RequireRole("Lecturer"));
+                options.AddPolicy("Student", policy => policy.RequireRole("Student"));
+            });
             #endregion
             #region Identity
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -62,11 +93,14 @@ namespace UniManagementSystem.MVC
                 .AddDefaultTokenProviders();
             #endregion
 
+            #region Dependency Injection
             builder.Services.AddScoped<ITokenService, TokenService>();
             builder.Services.AddScoped<IAccountServicecs, AccountServicecs>();
+            #endregion
+
 
             #region Adding Mapster
-           
+
             builder.Services.AddMapster();
             TypeAdapterConfig.GlobalSettings.Scan(typeof(MapsterConfig).Assembly);
             builder.Services.AddSingleton(TypeAdapterConfig.GlobalSettings);

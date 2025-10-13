@@ -94,8 +94,11 @@ namespace UniManagementSystem.MVC
             #endregion
 
             #region Dependency Injection
+            builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
             builder.Services.AddScoped<ITokenService, TokenService>();
             builder.Services.AddScoped<IAccountServicecs, AccountServicecs>();
+            builder.Services.AddScoped<IDashboardService, DashboardService>();
+            builder.Services.AddScoped<IUserService, UserService>();
             #endregion
 
 

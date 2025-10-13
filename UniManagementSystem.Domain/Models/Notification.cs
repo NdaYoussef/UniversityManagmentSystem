@@ -9,7 +9,8 @@ namespace UniManagementSystem.Domain.Models
         public int Id { get; set; }
         [Required]
         public string Message { get; set; }
-        public DateTime Date { get; set; }
+       // public DateTime Date { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public Roles RecepetiveRole { get; set; }
         public ApplicationUser? User { get; set; }
         [ForeignKey("User")]

@@ -11,7 +11,7 @@ using UniManagementSystem.Application.Interfaces;
 namespace UniManagementSystem.Application.Services
 {
     
-    internal class CloudinaryService : ICloudinaryService
+    public class CloudinaryService : ICloudinaryService
     {
         private readonly Cloudinary _cloundinary;
         public CloudinaryService(Cloudinary cloudinary)

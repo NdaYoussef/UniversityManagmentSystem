@@ -15,13 +15,13 @@ using UniManagementSystem.Infrastructure.DBContext;
 
 namespace UniManagementSystem.Application.Services
 {
-    internal class UserDashboardService : IUserDashboardService
+    public class UserService : IUserService
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IMapper _mapper;
         private readonly UniSystemContext _context;
         private readonly ICloudinaryService _cloudinaryService;
-        public UserDashboardService(UserManager<ApplicationUser> userManager, IMapper mapper, 
+        public UserService(UserManager<ApplicationUser> userManager, IMapper mapper, 
             UniSystemContext context, ICloudinaryService cloudinaryService)
         {
             _userManager = userManager;

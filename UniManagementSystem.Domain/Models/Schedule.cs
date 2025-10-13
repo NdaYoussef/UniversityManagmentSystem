@@ -12,9 +12,9 @@ namespace UniManagementSystem.Domain.Models
         public Course Course { get; set; }
         [ForeignKey("Course")]
         public int CourseId { get; set; }
-        public ApplicationUser Instructor { get; set; }
-        [ForeignKey("Instructor")]
-        public string InstructorId { get; set; }
+        public ApplicationUser Lecturer { get; set; }
+        [ForeignKey("Lecturer")]
+        public string LecturerId { get; set; }
 
     }
 }

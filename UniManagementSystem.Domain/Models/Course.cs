@@ -13,18 +13,14 @@ namespace UniManagementSystem.Domain.Models
         public bool IsActive { get; set; } = true;
 
         [MaxLength(50)]
-        public string CourseCode { get; set; }
-
-
+        public string Code { get; set; }
         public Department Department { get; set; }
         [ForeignKey("Department")]
         public int DepartmentId { get; set; }
 
 
         public ICollection<Schedule> Schedules { get; set; } = new List<Schedule>();
-        //public ICollection<Exam> Exams { get; set; } = new List<Exam>();
-     //   public ICollection<Attendance> Attendances { get; set; } = new List<Attendance>();
-        public ICollection<StudentCourse> StudentCourses { get; set; } = new List<StudentCourse>();
+        public ICollection<UserCourse> UserCourses { get; set; } = new List<UserCourse>();
 
     }
 }

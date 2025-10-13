@@ -31,9 +31,8 @@ namespace UniManagementSystem.Domain.Models
         public Department? Department { get; set; }
         [ForeignKey("Department")]
         public int? DepartmentId { get; set; }
-        //public ICollection<StudentExam>? StudentExams { get; set; } = new List<StudentExam>();
-       // public ICollection<Attendance>? Attendances { get; set; } = new List<Attendance>();
-        public ICollection<StudentCourse>? StudentCourses { get; set; } = new List<StudentCourse>();
+        
+        public ICollection<UserCourse>? UserCourses { get; set; } = new List<UserCourse>();
         // [JsonIgnore]
         public ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
     }

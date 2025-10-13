@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UniManagementSystem.Domain.Models
 {
-    public class StudentCourse
+    public class UserCourse
     {
         [Required]
-        public string StudentId { get; set; }
-        [ForeignKey(nameof(StudentId))]
-        public ApplicationUser Student { get; set; }
+        public string UserId { get; set; }
+        [ForeignKey(nameof(UserId))]
+        public ApplicationUser User { get; set; }
 
         [Required]
         public int CourseId { get; set; }

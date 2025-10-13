@@ -12,7 +12,5 @@ namespace UniManagementSystem.Domain.Models
         public ApplicationUser User { get; set; }
         [ForeignKey("User")]
         public string UserId { get; set; }
-
-        //public DateTime SentAt { get; set; }
     }
 }

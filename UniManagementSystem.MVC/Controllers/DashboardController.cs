@@ -12,9 +12,9 @@ namespace UniManagementSystem.MVC.Controllers
     public class DashboardController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IUserDashboardService _userDashboard;
+        private readonly IUserService _userDashboard;
 
-        public DashboardController(UserManager<ApplicationUser> userManager, IUserDashboardService userDashboard)
+        public DashboardController(UserManager<ApplicationUser> userManager, IUserService userDashboard)
         {
             _userManager = userManager;
             _userDashboard = userDashboard;

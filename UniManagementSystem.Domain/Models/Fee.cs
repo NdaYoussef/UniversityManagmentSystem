@@ -10,7 +10,6 @@ namespace UniManagementSystem.Domain.Models
         public decimal Amount {  get; set; }
         public DateTime Date { get; set; } = DateTime.UtcNow;
         public bool IsPaid { get; set; } = false;
-      //  [ForeignKey(nameof(StudentId))]
         public ApplicationUser Student { get; set; }
         [Required]
         [ForeignKey("Student")]

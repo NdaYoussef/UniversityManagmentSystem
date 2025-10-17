@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using UniManagementSystem.Application.DTOs;
+using UniManagementSystem.Application.DTOs.DashboardDtos;
 using UniManagementSystem.Application.Interfaces;
 using UniManagementSystem.Domain.Enums;
 using UniManagementSystem.Domain.Models;
@@ -24,10 +25,11 @@ namespace UniManagementSystem.Application.Services
         {
            var totalStudents = await _context.Users.CountAsync(u=>u.Role ==Roles.Student);
             var totalLecturers = await _context.Users.CountAsync(l => l.Role == Roles.Lecturer);
-            var totalCourses = await _context.Courses.ToListAsync();
+            var totalCourses = await _context.Courses.CountAsync();
 
-            var totalDepartments = await _context.Departments.ToListAsync();
+            var totalDepartments = await _context.Departments.CountAsync();
             var totalFees = await _context.Fees.SumAsync(f=>f.Amount);
+
             var recentNotifications = await _context.Notifications
                                                     .OrderByDescending(n=>n.CreatedAt)
                                                     .Take(5)
@@ -38,21 +40,21 @@ namespace UniManagementSystem.Application.Services
                                                     })
                                                     .ToListAsync();
 
-            var adminDashboard = new
+            var AdminDashboardDto = new AdminDashboardDto
             {
                 TotalStudents = totalStudents,
                 TotalLecturers = totalLecturers,
                 TotalCourses = totalCourses,
                 TotalDepartments = totalDepartments,
                 TotalFees = totalFees,
-                RecentNotifications = recentNotifications.Select(n => new
+                RecentNotifications = (List<NotificationDto>)recentNotifications.Select(n => new
                 {
                     n.Message,
                     n.CreatedAt
                 }),
-                SystemState = new
+                SystemState = new SystemStateDto
                 {
-                    TotalStudents = totalStudents + totalLecturers,
+                    TotalUsers = totalStudents + totalLecturers,
                     // StoredUsage = await CalculateStorageUsage();
                     LastUpdated = DateTime.Now
                 }
@@ -60,7 +62,7 @@ namespace UniManagementSystem.Application.Services
             return new AuthDto
             {
                 IsAuthenticated = true,
-                Data = adminDashboard,
+                Data = AdminDashboardDto,
                 Message = "Admin dashboard data retrieved successfully",
             };
 

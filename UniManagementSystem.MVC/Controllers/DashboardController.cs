@@ -1,72 +1,84 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using UniManagementSystem.Application.Interfaces;
-using UniManagementSystem.Domain.Models;
 
 namespace UniManagementSystem.MVC.Controllers
 {
-    [Authorize]
     public class DashboardController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IUserService _userDashboard;
+        private readonly IDashboardService _dashboardService;
 
-        public DashboardController(UserManager<ApplicationUser> userManager, IUserService userDashboard)
+        public DashboardController(IDashboardService dashboardService)
         {
-            _userManager = userManager;
-            _userDashboard = userDashboard;
+            _dashboardService = dashboardService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Index()
-        {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (string.IsNullOrEmpty(userId)) return RedirectToAction("Login", "Account");
+        //get admin Dashboard 
 
-            var dto = await _userDashboard.GetUserData(userId);
-            return View(dto);
+        [Authorize]
+        public IActionResult Index()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var userRole = User.FindFirst(ClaimTypes.Role)?.Value;
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            return userRole?.ToLower() switch
+            {
+                "admin" => RedirectToAction("Admin"),
+                "lecturere" => RedirectToAction("Lecturer"),
+                "student" =>RedirectToAction("Student"),
+                _ => RedirectToAction("Unauthorized")
+            };
         }
 
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ChangeProfilePicture(IFormFile profileImage)
+        [Authorize(Roles ="Admin")]
+        public async Task<IActionResult> Admin()
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (string.IsNullOrEmpty(userId)) return Unauthorized();
-
-            var result = await _userDashboard.ChangeProfilePictureAsync(userId, profileImage);
+            var result = await _dashboardService.GetAdminDashboardData();
             if (!result.IsAuthenticated)
             {
                 TempData["Error"] = result.Message;
+                return View("Error");
             }
-            else
-            {
-                TempData["Success"] = result.Message;
-            }
-            return RedirectToAction("Index");
+
+             return View("Admin", result.Data);
         }
 
-        [HttpPost]
-        [Authorize(Roles = "Admin")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteAccount(string userId)
+        [Authorize(Roles = "Lecturer")]
+        public async Task<IActionResult> Lecturer()
         {
-            if (string.IsNullOrEmpty(userId)) return BadRequest();
+            var lecturereId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var result = await _dashboardService.GetLecturerDashboardDataAsync(lecturereId);
 
-            var result = await _userDashboard.DeleteUserData(userId);
             if (!result.IsAuthenticated)
             {
                 TempData["Error"] = result.Message;
-                return RedirectToAction("Index");
+                return View("Error");
             }
-
-            TempData["Success"] = result.Message;
-            return RedirectToAction("Index", "Home");
-
+            return View("LecturerDashboard", result.Data);  
         }
+
+        [Authorize(Roles = "Student")]
+        public async Task<IActionResult> Student()
+        {
+            var studentId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var result = await _dashboardService.GetStudentDashboardDataAsync(studentId);
+
+            if(!result.IsAuthenticated)
+            {
+                TempData["Error"] = result.Message;
+                return View("Error");
+            }
+            return View("StudentDashboard", result.Data);
+        }
+
+        public IActionResult Unauthorized()
+        { return View(); }  
+
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UniManagementSystem.Application.DTOs
 {
-    internal class NotificationDto
+    public class NotificationDto
     {
         public bool IsDeleted { get; set; } = false;
         public string Message { get; set; }

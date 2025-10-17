@@ -27,7 +27,7 @@ namespace UniManagementSystem.Application.Services
             _configuration = configuration;
             _userManager = userManager;
         }
-        public async Task<JwtSecurityToken> GenerateToken(ApplicationUser user)
+        public async Task<string> GenerateToken(ApplicationUser user)
         {
             List<Claim> claims = new List<Claim>()
             {
@@ -46,7 +46,9 @@ namespace UniManagementSystem.Application.Services
                 signingCredentials: credentials,
                 expires: DateTime.UtcNow.AddDays(1)
                 );
-            return token;
+
+            JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
+            return handler.WriteToken(token);
         }
         public Domain.Models.RefreshToken GenerateRefreshToken()
         {
